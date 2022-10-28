@@ -27,6 +27,7 @@ const getTask = asyncHandler(async (req, res, next) => {
  * @Description :      Create/Add new task
  */
 const addTask = asyncHandler(async (req, res) => {
+    console.log(req.body);
     const task = await Task.create(req.body);
     res.status(201).json({ task });
 });

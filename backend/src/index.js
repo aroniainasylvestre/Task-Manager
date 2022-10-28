@@ -14,10 +14,7 @@ const URL = process.env.MONGO_URI;
 connectDB(URL);
 
 // cors
-const corsOptions = {
-    origin: process.env.CLIENT_URL,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // body parser
 app.use(express.json());

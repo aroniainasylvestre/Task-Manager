@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 
 const TaskSchema = new mongoose.Schema(
     {
-        title: {
+        name: {
             type: String,
             required: true,
             trim: true,
         },
         completed: {
             type: Boolean,
-            default: false,
+            default: true,
         },
     },
     { timestamps: true }
