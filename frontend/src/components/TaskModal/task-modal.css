@@ -1,0 +1,50 @@
+.main-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.664);
+    z-index: 1;
+    transition: 0.5s ease;
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.task-modal {
+    width: 40%;
+    height: 200px;
+    border-radius: 12px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input#name {
+    font-family: "Roboto";
+    color: rgb(0, 0, 0);
+    width: 80%;
+    height: 40px;
+    padding-left: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(236, 236, 236);
+}
+
+input#task:focus {
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+}

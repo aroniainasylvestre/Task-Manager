@@ -1,0 +1,56 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 12px;
+    border-radius: 4px;
+    background-color: black;
+}
+
+.task-item .pending {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(58, 59, 58);
+    width: 10%;
+}
+
+.task-item .completed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(43, 184, 90);
+    width: 10%;
+}
+
+.task-item .name {
+    font-size: 1.2rem;
+    color: rgb(199, 206, 201);
+    width: 60%;
+}
+
+.user-actions-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    width: 30%;
+}
+
+.user-actions-btn button {
+    background-color: rgb(58, 59, 58);
+    display: flex;
+    justify-content: center;
+    border: none;
+    padding: 0.2rem;
+    border-radius: 4px;
+}
+
+.user-actions-btn .edit {
+    color: rgb(100, 125, 236);
+}
+.user-actions-btn .delete {
+    color: rgb(202, 85, 124);
+}
+.user-actions-btn button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
