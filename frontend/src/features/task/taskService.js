@@ -19,7 +19,7 @@ const getTasks = async () => {
 
 const getTask = async (id) => {
     const response = await API.get("/" + id);
-    return response.data;
+    return response.data.task;
 };
 
 const updateTask = async (id, task) => {

@@ -1,39 +1,18 @@
-import React, { useEffect } from "react";
-import TaskItem from "./components/TaskItem/TaskItem";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
-import { getTasks } from "./features/task/taskSlice";
-import TaskModal from "./components/TaskModal/TaskModal";
-import { openModal } from "./features/taskModal/taskModal";
+import React from "react";
+import Header from "./components/Header/Header";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import EditTask from "./pages/EditTask";
 
 const App = () => {
-    const { tasks } = useSelector((state) => state.task);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getTasks());
-    }, [dispatch]);
-
     return (
-        <div className="app">
-            <TaskModal />
-            <div className="task">
-                <h4 className="heading">Task Manager</h4>
-                <div className="container">
-                    <button
-                        className="button"
-                        onClick={() => dispatch(openModal())}
-                    >
-                        <BsPlusCircleFill className="plus-icon" /> Add new task
-                    </button>
-                    <ul className="task-container">
-                        {tasks?.map((task) => {
-                            return <TaskItem key={task._id} task={task} />;
-                        })}
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/edit/:id" element={<EditTask />} />
+            </Routes>
+        </>
     );
 };
 

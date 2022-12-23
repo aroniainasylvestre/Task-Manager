@@ -36,6 +36,7 @@ const addTask = asyncHandler(async (req, res) => {
  */
 const updateTask = asyncHandler(async (req, res, next) => {
     const id = req.params.id;
+    console.log(req.body);
     const task = await Task.findOneAndUpdate({ _id: id }, req.body, {
         new: true,
     });

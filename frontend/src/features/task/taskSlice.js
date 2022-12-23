@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import taskService from "./taskService";
 
 const initialState = {
+    task: {},
     tasks: [],
     isLoading: false,
 };
@@ -66,10 +67,9 @@ export const getTask = createAsyncThunk(
 // Update task
 export const editTask = createAsyncThunk(
     "tasks/editTask",
-    async (data, thunkAPI) => {
+    async ({ id, data }, thunkAPI) => {
         try {
-            const { id, task } = data;
-            const response = await taskService.updateTask(id, task);
+            const response = await taskService.updateTask(id, data);
             return response;
         } catch (error) {
             const message =
@@ -133,7 +133,7 @@ const taskSlice = createSlice({
             })
             .addCase(getTask.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.skill = action.payload;
+                state.task = action.payload;
             })
             .addCase(getTask.rejected, (state) => {
                 state.isLoading = false;
@@ -144,7 +144,7 @@ const taskSlice = createSlice({
             .addCase(editTask.fulfilled, (state, action) => {
                 state.isLoading = false;
                 const index = state.tasks.findIndex(
-                    (skill) => skill.id === action.payload.id
+                    (item) => item.id === action.payload.id
                 );
                 state.tasks[index] = {
                     ...state[index],

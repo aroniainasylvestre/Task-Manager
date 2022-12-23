@@ -1,0 +1,11 @@
+.task-input {
+    height: 40px !important;
+}
+
+.task-input > input {
+    width: 80%;
+}
+
+.task-input > button {
+    width: 20%;
+}
